@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import create_engine
@@ -14,7 +14,6 @@ session = DBSession()
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(24)
 
 @app.route('/')
 def home():
@@ -61,6 +60,3 @@ def delete(note_id):
         return redirect(url_for('notes'))
     else:
         return render_template('Page.html', item=itemToDelete)
-
-if __name__ == '__main__':
-    app.run(debug = True)
