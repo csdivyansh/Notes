@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='notes.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Notes List</h1>
+
+        <div class="actions">
+            <a href="{{ url_for('newNote') }}" class="button create-button">New Note</a>
+        </div>
+
+        <div class="notes-list">
+            {% for note in notes %}
+            <div class="note-item">
+                <a href="{{ url_for('page', note_id=note.id) }}" class="button create-button">
+                 {{ note.title }}  
+                    
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

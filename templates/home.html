@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Notes App</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Notify.app</h1>
+            <p>Manage your notes efficiently and stay organized.</p>
+        </header>
+        <section class="cta">
+            <a href="{{url_for('notes')}}" class="btn">View Notes</a>
+        </section>
+        <br>
+        <br>
+            <p>&copy; Divyansh Varshney and Anmol Mishra 2024 Notes App</p>
+    </div>
+</body>
+</html>

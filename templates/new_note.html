@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Note</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='new_note.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">New Note</h1>
+        <form action="{{ url_for('newNote') }}" method="POST" class="form">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" id="title" name="title" class="form-input" required>
+
+            <label for="content" class="form-label">Content:</label>
+            <textarea id="content" name="content" class="form-textarea" rows="10"></textarea>
+
+            <input type="submit" value="Create" class="button create-button">
+        </form>
+    </div>
+</body>
+</html>
