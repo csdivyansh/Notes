@@ -44,7 +44,7 @@ def newNote():
 @app.route('/Notes/<int:note_id>/Page/')
 def page(note_id):
     note = session.query(Note).filter_by(id=note_id).one()
-    return render_template('page.html', note=note)
+    return render_template('Page.html', note=note)
 
 @app.route('/Notes/<int:note_id>/delete', methods = ['GET', 'POST'])
 def delete(note_id):
