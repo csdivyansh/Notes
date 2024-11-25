@@ -8,12 +8,11 @@ import os
 
 engine = create_engine('sqlite:///Notes.db')
 Base.metadata.bind = engine
-
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '34jh5j43hk5hjk34h5j34hkj5h'
+app.config['SECRET_KEY'] = os.urandom(24)
 
 @app.route('/')
 def home():
@@ -48,10 +47,6 @@ def page(note_id):
 
 @app.route('/Notes/<int:note_id>/delete', methods = ['GET', 'POST'])
 def delete(note_id):
-    # if not current_user.is_admin():
-    #     flash('You must be an admin to delete menu items!', 'error')
-    #     return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
-
     itemToDelete = session.query(Note).filter_by(id=note_id).one()
     if request.method == 'POST':
         session.delete(itemToDelete)
